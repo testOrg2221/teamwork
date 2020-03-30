@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<service>
+	<!-- token管理：local/redis -->
+	<tokenmananger>local</tokenmananger>
+	
+	<!-- 开发者模式下，默许的登录账号，生产应用请务必将此配置注释
+	<developeruser>superuser</developeruser>-->
+	 
+	<!-- 服务监控开关： true 打开    false 关闭 -->
+	<servicemonitor>false</servicemonitor>
+	
+	<!--  JDBC SQL监控开关： true 打开    false 关闭 -->
+	<jdbcmonitor>false</jdbcmonitor>
+	
+	<!-- 日志级别： DEBUG INFO ERROR -->
+	<loglevel>ERROR</loglevel>
+	
+	<!-- 数据更新时是否备份标识：yes/no/config，yes为全部，no为全部不备份，config为按配置的表名备份 -->
+	<updatebackup>yes</updatebackup>
+
+	<!-- 服务类型，是web还是console -->
+	<servicetype>web</servicetype>
+
+	<!-- 配置哪些服务接口不需要token验证 -->
+	<notokenauth>
+		<!-- FSDP2.0框架定义的nosession action, 请勿修改 -->
+		<!-- 登录 -->
+		<serviceap name="/service/finedo/login/localauth"/>
+		<serviceap name="/service/finedo/login/ssolocalauth"/>
+        <serviceap name="/service/finedo/login/devlocalauth"/>
+		
+		<!--第三方账号登录-->
+		<serviceap name="/service/finedo/login/openauth"/>
+		<serviceap name="/service/finedo/login/qqlogin"/>
+		<serviceap name="/service/finedo/login/weibologin"/>
+		<serviceap name="/service/finedo/login/weixinlogin"/>
+		
+		<!--上传App报错日志-->
+		<serviceap name="/service/finedo/login/addAppLog"/>
+		
+		<!-- 密码修改 -->
+		<serviceap name="/service/finedo/config/modifypassword"/>
+		
+		<!-- 单点认证 -->
+		<serviceap name="/service/finedo/sso/auth"/>
+		<serviceap name="/service/finedo/sso/openauth"/>
+		<serviceap name="/service/finedo/sso/queryauthbytoken"/>
+		<serviceap name="/service/finedo/sso/queryauthbysessionid"/>
+        <serviceap name="/service/finedo/sso/devauth"/>
+		
+		<!-- 获取图形验证码 -->
+		<serviceap name="/service/finedo/oper/graphicscode"/>
+		<serviceap name="/service/finedo/oper/smscode"/>
+		<serviceap name="/service/finedo/oper/validation"/>
+		
+		<!-- 系统初始化-->
+		<serviceap name="/service/finedo/login/sysinit"/>
+		<serviceap name="/service/finedo/statics/query"/>
+		<serviceap name="/service/finedo/configure/querysysparam"></serviceap>
+		
+		<!-- APP更新检测-->
+		<serviceap name="/service/finedo/app/check"/>
+		
+		<!-- 跨域配置数据加载 -->
+		<serviceap name="/service/finedo/cross/querycross"/>
+				
+		<!-- 文件上传下载 -->
+		<serviceap name="/service/finedo/file/query"/>
+		<serviceap name="/service/finedo/file/upload"/>
+		<serviceap name="/service/finedo/file/delete"/>
+		<serviceap name="/service/finedo/file/download"/>
+		<serviceap name="/service/finedo/file/downloadmulti"/>
+		
+		<!-- 流水号生成 -->
+        <serviceap name="/service/finedo/id/queryid"/>
+        <serviceap name="/service/finedo/id/queryoptsn"/>
+        <serviceap name="/service/finedo/id/queryintid"/>
+        
+		<!-- 微信签名 -->
+		<serviceap name="/service/finedo/weixin/querysign"/>
+		
+		<!-- 微传播单点登录 -->
+		<serviceap name="/service/finedo/wcbsso/auth"/>
+		<serviceap name="/service/finedo/wcbsso/getUserOfByphone"/>
+		<serviceap name="/service/finedo/wcbqrcode/updatecode"/>
+	</notokenauth>
+</service>

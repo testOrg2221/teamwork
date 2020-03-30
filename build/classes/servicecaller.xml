@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<servicecaller defaulturl="http://localhost:8080/wcb_service/">
+	
+	<!-- 单点登录 -->
+	<server url="http://localhost:8080/wcb_service/">
+		<serviceap name="service/finedo/sso/auth"/>
+		<serviceap name="service/finedo/sso/openauth"/>
+		<serviceap name="service/finedo/sso/quit"/>
+		<serviceap name="service/finedo/sso/queryauth"/>
+		<serviceap name="service/finedo/sso/queryauthbytoken"/>
+		<serviceap name="service/finedo/sso/queryauthbysessionid"/>
+		<serviceap name="service/finedo/sso/queryloginerror"/>
+		<serviceap name="service/finedo/sso/clearloginerror"/>
+	</server>
+	
+	<!-- 这里还可以配置其他的服务server, 实现service的分布式调用 -->
+	
+</servicecaller>
